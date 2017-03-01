@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_start"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#141d26"
+    android:orientation="vertical"
+    tools:context="com.development.mobile.andromeda.shimmer.StartActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/circle"
+        android:src="@drawable/logocircle_white"
+        android:layout_weight="1"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/text"
+        android:src="@drawable/logotext_white"
+        android:layout_marginBottom="100dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"/>
+
+</LinearLayout>

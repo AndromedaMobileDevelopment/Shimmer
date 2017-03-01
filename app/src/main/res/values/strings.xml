@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Shimmer</string>
+    <string name="register_title">Регистрация</string>
+    <string name="login_title">Вход</string>
+    <string name="name">Имя</string>
+    <string name="email">Email</string>
+    <string name="pwd">Пароль</string>
+    <string name="btnRegister">Зарегистрироваться</string>
+    <string name="title_auth">Авторизация</string>
+    <string name="version_name"><u>Pre-Alpha 0.1 Insider Release</u></string>
+</resources>
