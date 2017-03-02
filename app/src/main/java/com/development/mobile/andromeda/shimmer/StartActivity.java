@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
-public class StartActivity extends AppCompatActivity {
-
+public class StartActivity extends AppCompatActivity implements View.OnClickListener{
+    private StartThread thread;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,11 +22,22 @@ public class StartActivity extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.logo_rotate);
         Animation animation1 = AnimationUtils.loadAnimation(this, R.anim.alpha);
 
-        StartThread thread = new StartThread(this);
+        LinearLayout main_screen = (LinearLayout) findViewById(R.id.activity_start);
+        main_screen.setOnClickListener(this);
+
+        thread = new StartThread(this);
         thread.start();
 
         LogoText.startAnimation(animation1);
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+        thread.interrupt();
+        this.finish();
     }
 
 

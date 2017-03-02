@@ -2,12 +2,16 @@ package com.development.mobile.andromeda.shimmer;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,14 +54,26 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         prgDialog = new ProgressDialog(this);
         prgDialog.setMessage("Подождите!");
+
+        TextView link = (TextView) findViewById(R.id.contact_us);
+        link.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
-        nickName = EtNickName.getText().toString();
-        email = EtEmail.getText().toString();
-        password = EtPass.getText().toString();
-        invokeWS();
+        switch(view.getId()) {
+            case R.id.btnRegister:
+            nickName = EtNickName.getText().toString();
+            email = EtEmail.getText().toString();
+            password = EtPass.getText().toString();
+            invokeWS();
+                break;
+            case R.id.contact_us:
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://exodus.1547.ru"));
+                startActivity(browserIntent);
+                break;
+        }
     }
 
     private void goToLoginActivity(){
