@@ -16,13 +16,7 @@
             android:layout_height="130dp"
             android:id="@+id/logo"
             android:src="@drawable/logo_shimmer_white"/>
-
         <!-- View Title Label -->
-
-
-
-
-
         <EditText
             android:id="@+id/registerName"
             android:textColor="#ffffff"

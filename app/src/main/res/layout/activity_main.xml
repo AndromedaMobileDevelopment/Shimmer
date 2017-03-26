@@ -1,11 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.development.mobile.andromeda.shimmer.MainActivity"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true"
+    android:background="#FFFFFF"
+    tools:context="com.development.mobile.andromeda.shimmer.MainActivity">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/materialup.appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2196F3"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:background="#141d26">
+            <android.support.design.widget.TabLayout
+                android:id="@+id/materialup.tabs"
 
-</LinearLayout>
+                android:layout_width="fill_parent"
+                android:background="#1b2733"
+                android:layout_height="?attr/actionBarSize"
+                app:tabSelectedTextColor="#ffffff"
+                app:tabIndicatorColor="#FFFFFF"
+                app:tabIndicatorHeight="4dp" />
+        </HorizontalScrollView>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/materialup.viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+</android.support.design.widget.CoordinatorLayout>

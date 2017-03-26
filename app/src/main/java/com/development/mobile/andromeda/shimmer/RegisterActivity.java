@@ -42,6 +42,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+
 
         EtNickName = (EditText) findViewById(R.id.registerName);
         EtEmail = (EditText) findViewById(R.id.registerEmail);
@@ -101,6 +104,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 try {
                     if (obj.getBoolean("status")) {
                         // Set Default Values for Edit View controls
+
 
                     } else {
                         errorMsg.setText(obj.getString("error_msg"));
