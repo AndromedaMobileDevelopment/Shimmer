@@ -7,4 +7,5 @@
     <string name="pwd">Пароль</string>
     <string name="btnRegister">Зарегистрироваться</string>
     <string name="title_auth">Авторизация</string>
+    <string name="test_question">Abusus non tollit usum. Accepto damno. Accessio cedit principali.</string>
 </resources>

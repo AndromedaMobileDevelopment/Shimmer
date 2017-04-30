@@ -23,7 +23,7 @@
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".TestInfoFragment"></activity>
     </application>
 
 </manifest>

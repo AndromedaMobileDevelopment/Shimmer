@@ -42,9 +42,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
-
 
         EtNickName = (EditText) findViewById(R.id.registerName);
         EtEmail = (EditText) findViewById(R.id.registerEmail);
@@ -95,27 +92,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         prgDialog.show();
         // Make RESTful webservice call using AsyncHttpClient object
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://195.19.44.155/anton/index.php?method=register", params, new JsonHttpResponseHandler() {
+        client.get("http://195.19.44.155/anton/core/api.php?action=Registration", params, new JsonHttpResponseHandler() {
             // When the response returned by REST has Http response code '200'
 
             public void onSuccess(int statusCode, Header[] headers, JSONObject obj) {
                 // Hide Progress Dialog
                 prgDialog.hide();
-                try {
-                    if (obj.getBoolean("status")) {
                         // Set Default Values for Edit View controls
-
-
-                    } else {
-                        errorMsg.setText(obj.getString("error_msg"));
-                        Toast.makeText(getApplicationContext(), obj.getString("error_msg"), Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    Toast.makeText(getApplicationContext(), "Сервер Json не отвечает!", Toast.LENGTH_LONG).show();
-                    e.printStackTrace();
-
-                }
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                        finish();
             }
 
             // When the response returned by REST has Http response code other than '200'
