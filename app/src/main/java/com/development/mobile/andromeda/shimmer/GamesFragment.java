@@ -142,12 +142,12 @@ public class GamesFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         @Override
         public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card_news, parent, false);
-            return new RecyclerViewHolder(view);
+            return new RecyclerViewHolder(view, 1);
         }
 
         @Override
         public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-            holder.bind(items.get(position));
+            holder.bind(items.get(position), 1);
         }
 
         @Override
@@ -165,12 +165,12 @@ public class GamesFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         private TextView headerAuthor;
         private ImageView imgIdHeader;
 
-        RecyclerViewHolder(View itemView, int idNews) {
+        RecyclerViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.title);
             image = (ImageView) itemView.findViewById(R.id.image);
         }
-        RecyclerViewHolder(View itemView) {
+        RecyclerViewHolder(View itemView, int idNews) {
             super(itemView);
             headerTag = (TextView) itemView.findViewById(R.id.tagHeader);
             headerDesk = (TextView) itemView.findViewById(R.id.deskHeader);

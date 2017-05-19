@@ -3,6 +3,7 @@
     package="com.development.mobile.andromeda.shimmer">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -23,7 +24,10 @@
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".TestInfoFragment"></activity>
+        <activity android:name=".TestInfoFragment" />
+        <activity android:name="com.development.mobile.andromeda.shimmer.IntroActivity"
+            android:label="Shimmer"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

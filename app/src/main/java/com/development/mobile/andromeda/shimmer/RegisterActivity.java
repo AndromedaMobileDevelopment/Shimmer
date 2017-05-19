@@ -1,7 +1,9 @@
 package com.development.mobile.andromeda.shimmer;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,6 +40,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private String email;
     private String password;
     private ProgressDialog prgDialog;
+
+    private int mCounter;
+    public static final String APP_PREFERENCES = "mysettings";
+    public static final String APP_PREFERENCES_COUNTER = "counter";
+    private SharedPreferences mSettings;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +64,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         TextView link = (TextView) findViewById(R.id.contact_us);
         link.setOnClickListener(this);
+
+        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
     }
 
@@ -85,9 +94,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     public void invokeWS(){
         RequestParams params = new RequestParams();
-        params.put("username",nickName);
-        params.put("name", email);
-        params.put("password",password);
         // Show Progress Dialog
         prgDialog.show();
         // Make RESTful webservice call using AsyncHttpClient object
@@ -98,10 +104,22 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void onSuccess(int statusCode, Header[] headers, JSONObject obj) {
                 // Hide Progress Dialog
                 prgDialog.hide();
-                        // Set Default Values for Edit View controls
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
-                        finish();
+
+                int i = mSettings.getInt(APP_PREFERENCES_COUNTER, 0);
+                if(i == 0) {
+                    SharedPreferences.Editor editor = mSettings.edit();
+                    editor.putInt(APP_PREFERENCES_COUNTER, 1);
+                    editor.apply();
+
+                    Intent intent = new Intent(getApplicationContext(), IntroActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
 
             // When the response returned by REST has Http response code other than '200'

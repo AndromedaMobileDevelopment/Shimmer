@@ -56,6 +56,7 @@
             android:orientation="vertical"
             android:gravity="center"
             app:layout_scrollFlags="scroll|enterAlways|snap">​
+
             <TextView
                 android:id="@+id/user_name"
                 android:layout_width="wrap_content"
@@ -72,25 +73,11 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                 android:text="[UserSubtitleOrCompanyName]"
                 android:textColor="@android:color/white" />
-
-
             ​
         </LinearLayout>
-        ​
-        <android.support.design.widget.TabLayout
-            android:id="@+id/materialup.tabs"
-            android:layout_width="fill_parent"
-            android:background="#141d26"
-            android:layout_height="?attr/actionBarSize"
-            app:tabSelectedTextColor="#FFFFFF"
-            app:tabIndicatorColor="#FFFFFF"
-            app:tabIndicatorHeight="4dp" />
+
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/material_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-    ​
+    <include layout="@layout/content_scrolling" />
+
 </android.support.design.widget.CoordinatorLayout>
